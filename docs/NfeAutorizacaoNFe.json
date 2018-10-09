@@ -1,0 +1,997 @@
+{
+  "title": "NFe",
+  "type": "object",
+  "properties": {
+    "identificacao": {
+      "required": true,
+      "type": "object",
+      "properties": {
+        "naturezaOperacao": {
+          "required": true,
+          "type": "string"
+        },
+        "indicadorPagamento": {
+          "required": true,
+          "type": "integer"
+        },
+        "numero": {
+          "required": true,
+          "type": "integer"
+        },
+        "serie": {
+          "required": true,
+          "type": "integer"
+        },
+        "dataEmissao": {
+          "required": false,
+          "type": "string"
+        },
+        "dataEntradaSaida": {
+          "required": false,
+          "type": "string"
+        },
+        "tipoOperacao": {
+          "required": true,
+          "type": "integer"
+        },
+        "indicadorDestino": {
+          "required": true,
+          "type": "integer"
+        },
+        "tipoEmissao": {
+          "required": true,
+          "type": "integer"
+        },
+        "finalidade": {
+          "required": true,
+          "type": "integer"
+        },
+        "tipoAmbiente": {
+          "required": true,
+          "type": "integer",
+          "enum": [
+            1,
+            2
+          ]
+        },
+        "consumidorFinal": {
+          "required": true,
+          "type": "integer",
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "indicadorPresenca": {
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "emitente": {
+      "required": true,
+      "type": "object",
+      "properties": {
+        "nomeCompleto": {
+          "required": true,
+          "type": "string"
+        },
+        "razaoSocial": {
+          "required": true,
+          "type": "string"
+        },
+        "inscricaoFederal": {
+          "required": true,
+          "type": "string"
+        },
+        "inscricaoEstadual": {
+          "required": true,
+          "type": "string"
+        },
+        "regimeTributario": {
+          "required": true,
+          "type": "string",
+          "enum": [
+            "simples",
+            "normal"
+          ]
+        },
+        "endereco": {
+          "required": true,
+          "type": "object",
+          "properties": {
+            "logradouro": {
+              "required": true,
+              "type": "string"
+            },
+            "numero": {
+              "required": true,
+              "type": "integer"
+            },
+            "bairro": {
+              "required": true,
+              "type": "string"
+            },
+            "municipioCodigo": {
+              "required": true,
+              "type": "integer"
+            },
+            "municipioNome": {
+              "required": true,
+              "type": "string"
+            },
+            "uf": {
+              "required": true,
+              "type": "string"
+            },
+            "cep": {
+              "required": true,
+              "type": "string"
+            },
+            "paisNome": {
+              "required": true,
+              "type": "string"
+            },
+            "paisCodigo": {
+              "required": true,
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false
+        },
+        "contato": {
+          "required": false,
+          "type": "object",
+          "properties": {
+            "fone": {
+              "required": false,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "destinatario": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "nomeCompleto": {
+          "required": true,
+          "type": "string"
+        },
+        "inscricaoFederal": {
+          "required": true,
+          "type": "string"
+        },
+        "indicadorIe": {
+          "required": true,
+          "type": "integer"
+        },
+        "inscricaoEstadual": {
+          "required": false,
+          "type": "string"
+        },
+        "endereco": {
+          "required": true,
+          "type": "object",
+          "properties": {
+            "logradouro": {
+              "required": true,
+              "type": "string"
+            },
+            "numero": {
+              "required": true,
+              "type": "integer"
+            },
+            "bairro": {
+              "required": true,
+              "type": "string"
+            },
+            "municipioNome": {
+              "required": true,
+              "type": "string"
+            },
+            "municipioCodigo": {
+              "required": true,
+              "type": "integer"
+            },
+            "paisNome": {
+              "required": true,
+              "type": "string"
+            },
+            "paisCodigo": {
+              "required": true,
+              "type": "integer"
+            },
+            "uf": {
+              "required": true,
+              "type": "string"
+            },
+            "cep": {
+              "required": true,
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "contato": {
+          "required": false,
+          "type": "object",
+          "properties": {
+            "fone": {
+              "required": false,
+              "type": "string"
+            },
+            "email": {
+              "required": false,
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "produtos": {
+      "required": true,
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "codigo": {
+            "required": true,
+            "type": "string"
+          },
+          "nome": {
+            "required": true,
+            "type": "string"
+          },
+          "ncm": {
+            "required": true,
+            "type": "string"
+          },
+          "ean": {
+            "required": true,
+            "type": "string"
+          },
+          "eanTrib": {
+            "required": false,
+            "type": "string"
+          },
+          "cfop": {
+            "required": true,
+            "type": "string"
+          },
+          "cest": {
+            "required": false,
+            "type": "string"
+          },
+          "quantidade": {
+            "required": false,
+            "type": "number"
+          },
+          "quantidadeTrib": {
+            "required": false,
+            "type": "number"
+          },
+          "unidade": {
+            "required": true,
+            "type": "string"
+          },
+          "unidadeTrib": {
+            "required": false,
+            "type": "string"
+          },
+          "peso": {
+            "required": false,
+            "type": "number"
+          },
+          "origem": {
+            "required": true,
+            "type": "integer"
+          },
+          "valorUnitario": {
+            "required": true,
+            "type": "number"
+          },
+          "valorUnitarioTrib": {
+            "required": false,
+            "type": "number"
+          },
+          "valorFrete": {
+            "required": false,
+            "type": "number"
+          },
+          "valorSeguro": {
+            "required": false,
+            "type": "number"
+          },
+          "valorDesconto": {
+            "required": false,
+            "type": "number"
+          },
+          "valorOutros": {
+            "required": false,
+            "type": "number"
+          },
+          "valorTotal": {
+            "required": true,
+            "type": "number"
+          },
+          "numeroPedido": {
+            "required": false,
+            "type": "string"
+          },
+          "numeroItemPedido": {
+            "required": false,
+            "type": "string"
+          },
+          "observacoes": {
+            "required": false,
+            "type": "string"
+          },
+          "imposto": {
+            "required": true,
+            "type": "object",
+            "properties": {
+              "tributos": {
+                "required": false,
+                "type": "number"
+              },
+              "icms": {
+                "required": true,
+                "type": "object",
+                "properties": {
+                  "cst": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "modBC": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "modBCST": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "base": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "baseST": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "baseSTRet": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "aliquota": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "aliquotaST": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "aliquotaRed": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "aliquotaDif": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "aliquotaCredito": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "valor": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "valorST": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "valorSTRet": {
+                    "rquired": false,
+                    "type": "number"
+                  },
+                  "valorOperacao": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "valorDif": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "valorCredito": {
+                    "required": false,
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "ipi": {
+                "required": true,
+                "type": "object",
+                "properties": {
+                  "enquadramento": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "cst": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "base": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "aliquota": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "valor": {
+                    "required": false,
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "ii": {
+                "required": false,
+                "type": "object",
+                "properties": {
+                  "base": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "valor": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "despesas": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "valIOF": {
+                    "required": true,
+                    "type": "string"
+                  }
+                }
+              },
+              "pis": {
+                "required": true,
+                "type": "object",
+                "properties": {
+                  "cst": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "base": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "aliquota": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "aliquotaReais": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "valor": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "quantidade": {
+                    "required": false,
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "cofins": {
+                "required": true,
+                "type": "object",
+                "properties": {
+                  "cst": {
+                    "required": true,
+                    "type": "string"
+                  },
+                  "base": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "aliquota": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "aliquotaReais": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "valor": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "quantidade": {
+                    "required": false,
+                    "type": "number"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "icmsPartilha": {
+                "required": false,
+                "type": "object",
+                "properties": {
+                  "baseDest": {
+                    "required": true,
+                    "type": "number"
+                  },
+                  "baseFCPDest": {
+                    "required": false,
+                    "type": "number"
+                  },
+                  "aliquotaFCPDest": {
+                    "required": true,
+                    "type": "number"
+                  },
+                  "aliquotaDest": {
+                    "required": true,
+                    "type": "number"
+                  },
+                  "aliquotaInter": {
+                    "required": true,
+                    "type": "number"
+                  },
+                  "percentualPartilha": {
+                    "required": true,
+                    "type": "number"
+                  },
+                  "valorFCPDest": {
+                    "required": true,
+                    "type": "number"
+                  },
+                  "valorDest": {
+                    "required": true,
+                    "type": "number"
+                  },
+                  "valorRemet": {
+                    "required": true,
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "importacao": {
+            "required": false,
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "properties": {
+                "documento": {
+                  "required": true,
+                  "type": "object",
+                  "properties": {
+                    "numero": {
+                      "required": true,
+                      "type": "string"
+                    },
+                    "data": {
+                      "required": true,
+                      "type": "string"
+                    }
+                  }
+                },
+                "desembaraco": {
+                  "required": true,
+                  "type": "object",
+                  "properties": {
+                    "local": {
+                      "required": true,
+                      "type": "string"
+                    },
+                    "uf": {
+                      "required": true,
+                      "type": "string"
+                    },
+                    "data": {
+                      "required": true,
+                      "type": "string"
+                    }
+                  }
+                },
+                "tpViaTransp": {
+                  "required": true,
+                  "type": "string"
+                },
+                "tpIntermediario": {
+                  "required": true,
+                  "type": "string"
+                },
+                "cExportador": {
+                  "required": true,
+                  "type": "string"
+                },
+                "vAFRMM": {
+                  "required": false,
+                  "type": "string"
+                },
+                "adicao": {
+                  "required": true,
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "nAdic": {
+                        "required": true,
+                        "type": "string"
+                      },
+                      "nItem": {
+                        "required": true,
+                        "type": "string"
+                      },
+                      "cFabricante": {
+                        "required": true,
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "totais": {
+      "required": true,
+      "type": "object",
+      "properties": {
+        "frete": {
+          "required": true,
+          "type": "number"
+        },
+        "desconto": {
+          "required": true,
+          "type": "number"
+        },
+        "total": {
+          "required": true,
+          "type": "number"
+        },
+        "retencaoTributos": {
+          "baseRetPrev": {
+            "required": false,
+            "type": "number"
+          },
+          "valorRetPrev": {
+            "required": false,
+            "type": "number"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "transporte": {
+      "required": true,
+      "type": "object",
+      "properties": {
+        "modalidadeFrete": {
+          "required": true,
+          "type": "integer"
+        },
+        "transportadora": {
+          "required": false,
+          "type": "object",
+          "properties": {
+            "inscricaoFederal": {
+              "required": false,
+              "type": "string"
+            },
+            "nomeCompleto": {
+              "required": false,
+              "type": "string"
+            },
+            "inscricaoEstadual": {
+              "required": false,
+              "type": "string"
+            },
+            "logradouro": {
+              "required": false,
+              "type": "string"
+            },
+            "municipioNome": {
+              "required": false,
+              "type": "string"
+            },
+            "uf": {
+              "required": false,
+              "type": "string"
+            }
+          }
+        },
+        "veiculo": {
+          "required": false,
+          "type": "object",
+          "properties": {
+            "placa": {
+              "required": false,
+              "type": "string"
+            },
+            "uf": {
+              "required": false,
+              "type": "string"
+            },
+            "rntc": {
+              "required": false,
+              "type": "string"
+            }
+          }
+        },
+        "volumes": {
+          "required": false,
+          "type": "array",
+          "properties": {
+            "quantidade": {
+              "required": false,
+              "type": "string"
+            },
+            "especie": {
+              "required": false,
+              "type": "string"
+            },
+            "marca": {
+              "required": false,
+              "type": "string"
+            },
+            "numero": {
+              "required": false,
+              "type": "string"
+            },
+            "pesoLiquido": {
+              "required": false,
+              "type": "number"
+            },
+            "pesoBruto": {
+              "required": false,
+              "type": "number"
+            },
+            "lacres": {
+              "required": false,
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "cobranca": {
+      "required": false,
+      "type": "object",
+      "properties": {
+        "fatura": {
+          "required": false,
+          "type": "object",
+          "properties": {
+            "numero": {
+              "required": false,
+              "type": [
+                "string",
+                "number"
+              ]
+            },
+            "valorOriginal": {
+              "required": false,
+              "type": "number"
+            },
+            "valorDesconto": {
+              "required": false,
+              "type": "number"
+            },
+            "valorLiquido": {
+              "required": false,
+              "type": "number"
+            }
+          },
+          "aditionalProperites": false
+        },
+        "duplicatas": {
+          "required": false,
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "properties": {
+              "numero": {
+                "required": false,
+                "type": [
+                  "string",
+                  "number"
+                ]
+              },
+              "dataVencimento": {
+                "required": false,
+                "type": "string"
+              }
+            },
+            "valor": {
+              "required": true,
+              "type": "number"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "pagamento": {
+      "required": true,
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "formaPagamento": {
+            "required": true,
+            "type": "string",
+            "enum": [
+              "01",
+              "02",
+              "03",
+              "04",
+              "05",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "90",
+              "99"
+            ]
+          },
+          "valor": {
+            "required": true,
+            "type": "number"
+          },
+          "inscricaoFederal": {
+            "required": false,
+            "type": "string"
+          },
+          "bandeira": {
+            "required": false,
+            "type": "string"
+          },
+          "codigoAutorizacao": {
+            "required": false,
+            "type": "string"
+          },
+          "tipoIntegracao": {
+            "required": false,
+            "type": "integer",
+            "enum": [
+              1,
+              2
+            ]
+          }
+        }
+      }
+    },
+    "notasReferenciadas": {
+      "required": false,
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "tipo": {
+            "required": true,
+            "type": "string",
+            "enum": [
+              "nfe",
+              "nf",
+              "nfp",
+              "cte",
+              "ecf"
+            ]
+          },
+          "chave": {
+            "required": false,
+            "type": "string"
+          },
+          "ufEmitente": {
+            "required": false,
+            "type": "string"
+          },
+          "dataEmissao": {
+            "required": false,
+            "type": "string"
+          },
+          "inscricaoFederal": {
+            "required": false,
+            "type": "string"
+          },
+          "inscricaoEstadual": {
+            "required": false,
+            "type": "string"
+          },
+          "serie": {
+            "required": false,
+            "type": "integer"
+          },
+          "modelo": {
+            "required": false,
+            "type": "string",
+            "enum": [
+              "01",
+              "04",
+              "2B",
+              "2C",
+              "2D"
+            ]
+          },
+          "numero": {
+            "required": false,
+            "type": "integer"
+          },
+          "contador": {
+            "required": false,
+            "type": "integer"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "autorizadosDownload": {
+      "required": false,
+      "type": "string"
+    },
+    "informacoesAdicionais": {
+      "required": false,
+      "type": "object",
+      "properties": {
+        "fisco": {
+          "required": false,
+          "type": "string"
+        },
+        "contribuinte": {
+          "required": false,
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "exportacao": {
+      "required": false,
+      "type": "object",
+      "properties": {
+        "ufEmbarque": {
+          "required": false,
+          "type": "string"
+        },
+        "localEmbarque": {
+          "required": false,
+          "type": "string"
+        },
+        "localDespacho": {
+          "required": false,
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
